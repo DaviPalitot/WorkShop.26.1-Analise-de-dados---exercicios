@@ -1,0 +1,59 @@
+CREATE SCHEMA logistica_express;
+SET search_path TO logistica_express;
+
+-- Criando as tabelas
+CREATE TABLE Transportadoras (
+    id_transportadora INT PRIMARY KEY,
+    nome_empresa VARCHAR(100) NOT NULL,
+    veiculo_tipo VARCHAR(50),
+    regiao_atendimento VARCHAR(50)
+);
+
+CREATE TABLE Entregas (
+    id_entrega INT PRIMARY KEY,
+    codigo_rastreio VARCHAR(20) NOT NULL,
+    peso_kg DECIMAL(10, 2),
+    valor_frete DECIMAL(10, 2),
+    id_transportadora INT,
+    FOREIGN KEY (id_transportadora) REFERENCES Transportadoras(id_transportadora)
+);
+
+-- Inserindo as transportadoras (10 linhas)
+INSERT INTO Transportadoras VALUES 
+(1, 'LogBrasil', 'Caminhão', 'Sudeste'),
+(2, 'VaptVupt', 'Moto', 'São Paulo Capital'),
+(3, 'TransNorte', 'Carreta', 'Norte'),
+(4, 'SulFrete', 'Furgão', 'Sul'),
+(5, 'EcoBike Delivery', 'Bicicleta', 'Centro'),
+(6, 'Rápido Federal', 'Caminhão', 'Distrito Federal'),
+(7, 'Nordeste Cargas', 'Carreta', 'Nordeste'),
+(8, 'Flash Entregas', 'Van', 'Sudeste'),
+(9, 'InterEstadual', 'Caminhão', 'Nacional'),
+(10, 'Aérea Express', 'Avião', 'Internacional');
+
+-- Inserindo as entregas (10 linhas)
+INSERT INTO Entregas VALUES 
+(101, 'BR123456', 5.50, 45.00, 1),
+(102, 'SP987654', 0.80, 12.00, 2),
+(103, 'AM000111', 150.00, 850.00, 3),
+(104, 'RS555444', 12.30, 89.90, 4),
+(105, 'CT999888', 2.10, 15.00, 5),
+(106, 'DF111222', 45.00, 120.00, 6),
+(107, 'BA444333', 200.50, 1200.00, 7),
+(108, 'RJ777666', 3.40, 35.00, 8),
+(109, 'BR000000', 80.00, 300.00, 9),
+(110, 'INT99911', 1.50, 250.00, 10);
+
+-- Atualizando o valor do frete de uma entrega pesada (DML)
+UPDATE Entregas SET valor_frete = 900.00 WHERE id_entrega = 103;
+
+-- Relatório de Performance por Transportadora (Join, Agregação e Agrupamento)
+SELECT 
+    t.nome_empresa,
+    COUNT(e.id_entrega) AS total_entregas,
+    SUM(e.valor_frete) AS faturamento_total,
+    AVG(e.peso_kg) AS peso_medio_cargas
+FROM Transportadoras t
+JOIN Entregas e ON t.id_transportadora = e.id_transportadora
+GROUP BY t.nome_empresa
+ORDER BY faturamento_total DESC;
