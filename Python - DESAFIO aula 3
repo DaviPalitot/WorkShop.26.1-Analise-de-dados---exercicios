@@ -1,0 +1,32 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# 1. NUMPY: Gerar dados aleatórios
+# Geramos 7 temperaturas entre 20 e 35 graus
+temperaturas = np.random.randint(20, 36, size=7)
+dias_da_semana = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom']
+
+# 2. PANDAS: Criar o DataFrame e calcular a média
+df_clima = pd.DataFrame({
+    'Dia': dias_da_semana,
+    'Temperatura': temperaturas
+})
+
+media_semanal = df_clima['Temperatura'].mean()
+
+print(f"Temperaturas da Semana: \n{df_clima}")
+print(f"\nA média de temperatura da semana foi: {media_semanal:.1f}°C")
+
+# 3. MATPLOTLIB: Criar o gráfico de linha
+plt.figure(figsize=(8, 5))
+plt.plot(df_clima['Dia'], df_clima['Temperatura'], marker='o', color='orange', linestyle='-', linewidth=2)
+
+# Customização do gráfico
+plt.title('Variação de Temperatura ao Longo da Semana', fontsize=14)
+plt.xlabel('Dias da Semana')
+plt.ylabel('Temperatura (°C)')
+plt.grid(True, linestyle='--', alpha=0.7)
+
+# Mostra o gráfico
+plt.show()
