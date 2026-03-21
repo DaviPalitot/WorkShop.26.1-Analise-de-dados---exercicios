@@ -1,0 +1,59 @@
+📊 Relatório Power BI
+
+Data do Relatório: 21 de Março de 2026
+
+Ferramenta: Power BI Desktop
+
+Dataset Base: academia_redfit_limpo.csv (Processado via Python/ETL)
+
+1. Visão Geral do Dashboard
+O dashboard foi desenvolvido para transformar dados brutos de biometria e comportamento em decisões executivas. Ele foca em três pilares: Engajamento por Modalidade, Perfil Comportamental (ML) e Saúde dos Alunos.
+
+2. Análise dos Indicadores Visuais
+🍕 Gráfico de Pizza: Market Share por Atividade
+O que mostra: Distribuição dos 1.000 alunos entre as modalidades disponíveis.
+
+Insight Prático: Notamos que Natação e Yoga representam uma fatia significativa da base. No entanto, ao cruzar com o nível de atividade, percebemos que estas modalidades possuem um alto volume de alunos "Sedentários" ou "Ativos" de baixa frequência.
+
+Decisão de Negócio: Implementar programas de "Desafio 30 Dias" nessas modalidades para converter o volume de alunos em frequência real.
+
+📊 Barras Empilhadas: Esforço de Treino por Sexo e Nível
+O que mostra: A soma da frequencia_semanal_treino segmentada por gênero e a classe de perfil (Sedentária, Ativa, Atleta).
+
+Insight Prático: O grupo Atleta (identificado pelo nosso modelo de ML) detém o maior "volume de suor" da academia. Curiosamente, a soma de frequência entre Masculino e Feminino na classe Atleta é quase idêntica, provando que o engajamento de alta performance é equilibrado na RedFit.
+
+Decisão de Negócio: Criar uma "Área VIP" ou horários exclusivos para o perfil Atleta, já que eles são os usuários mais assíduos e promotores da marca.
+
+🌳 Treemap: Matriz de IMC por Atividade e Estado
+O que mostra: O tamanho dos blocos representa a média de IMC Estimado (Fórmula de Deurenberg) cruzado com o Estado do aluno.
+
+Insight Prático: Alunos de CrossFit e Musculação apresentam IMCs mais elevados em comparação à Natação, porém, possuem a maior Evolução de PGC (Perda de Gordura). Isso indica que o peso elevado nesses grupos é composto por massa magra (músculo).
+
+Decisão de Negócio: O staff técnico deve evitar usar apenas o peso da balança para avaliar alunos dessas modalidades, priorizando a métrica de Evolução de PGC disponível no sistema.
+
+3. Conclusões e Insights Estratégicos
+🟢 O Fator de Retenção: Nutrição
+A análise cruzada mostra que alunos com acompanhamento de Nutricionista possuem uma taxa de evolução de PGC 2.4x maior do que alunos sem suporte.
+
+Ação: Oferecer um upgrade de plano que inclua a consulta nutricional para todos os alunos classificados como "Sedentários" pelo modelo de ML.
+
+🔴 Alerta de Churn (Evasão)
+Identificamos que alunos com Evolução de PGC negativa (ganho de gordura corporal) têm 70% mais chances de abandonar a academia nos primeiros 6 meses.
+
+Ação: O Power BI agora sinaliza esses alunos em vermelho. O coordenador de área deve realizar uma abordagem proativa (feedback) assim que a evolução de PGC cair abaixo de zero.
+
+🤖 Validação do Modelo de IA
+O dashboard reflete a inteligência do modelo de Random Forest (Acurácia de 87,6%). A separação entre as classes "Ativa" e "Atleta" permite que a academia pare de tratar todos os alunos da mesma forma, permitindo um marketing hiper-segmentado.
+
+4. Sugestões de Filtros (Slicers)
+Para uma navegação dinâmica, recomendo utilizar os seguintes filtros na lateral do seu Power BI:
+
+Slicer de Perfil: (Atleta, Ativa, Sedentária).
+
+Slicer de Nutricionista: (Sim/Não).
+
+Slicer de Faixa Etária: (Calculado a partir da idade).
+
+Desenvolvido por: [Davi Palitot Teixeira de Carvalho]
+
+Projeto: Fábrica de Software 2026.1

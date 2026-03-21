@@ -1,0 +1,52 @@
+Relatório de Insights Estratégicos — Concessionária VelozCar
+Este documento descreve as análises extraídas do banco de dados e as recomendações para otimização do negócio.
+
+1. Análise de Faturamento e Meios de Pagamento (Agregação)
+O que a consulta mostrou:
+O agrupamento do faturamento total por método de pagamento (Pix, Cartão, Boleto) e o status de cada transação.
+
+Insights e Decisões:
+
+Eficiência Financeira: Se o Pix apresentar um crescimento constante, a VelozCar pode oferecer pequenos descontos (ex: 3% a 5%) para incentivar essa modalidade, reduzindo custos com taxas de cartões de crédito.
+
+Combate à Inadimplência: Identificar o volume de pagamentos "Pendentes" ou "Cancelados". Se o índice for alto, a empresa deve implementar uma política de análise de crédito mais rigorosa ou exigir pagamento antecipado no ato da reserva.
+
+2. Desempenho da Frota e Rentabilidade (JOIN Intermediário)
+O que a consulta mostrou:
+A relação entre veículos e suas respectivas categorias, comparando quais modelos possuem a maior diária e maior saída.
+
+Insights e Decisões:
+
+Mix de Produtos: Se a consulta mostrar que veículos da categoria SUV possuem alta taxa de locação apesar do preço elevado, a decisão estratégica seria expandir a compra de modelos como o "Compass", que geram maior margem de lucro.
+
+Renovação de Frota: Ao analisar veículos com o status "Manutenção" frequente, a gerência pode decidir pelo desfazimento (venda) desses ativos antes que o custo de reparo supere o lucro gerado pela locação.
+
+3. Comportamento e Retenção de Clientes (INNER JOIN)
+O que a consulta mostrou:
+A lista de clientes ativos, os veículos que escolheram e o valor total investido em seus contratos.
+
+Insights e Decisões:
+
+Fidelização (CRM): Identificar os "Top Clientes" (aqueles que alugam mais de 3 vezes ao ano ou gastam acima da média). Para esses, a VelozCar pode criar um programa de pontos ou oferecer upgrades gratuitos de categoria.
+
+Marketing Segmentado: Clientes que alugam apenas modelos "Econômicos" podem ser alvo de campanhas com descontos progressivos para experimentarem a categoria "Sedan" ou "Hatch" superior.
+
+4. Produtividade e ROI de Funcionários (JOIN Triplo + Agregação)
+O que a consulta mostrou:
+O ranking de funcionários com base na receita total gerada por seus contratos em relação ao custo de seu salário.
+
+Insights e Decisões:
+
+Bonificação por Performance: Funcionários com o melhor "Ratio Receita/Salário" devem ser bonificados. Já aqueles com baixa performance podem ser encaminhados para treinamentos de técnicas de vendas e atendimento ao cliente.
+
+Ajuste de Escala: Se determinados atendentes possuem um volume de contratos muito superior aos outros, isso pode indicar uma sobrecarga, sugerindo a necessidade de redistribuição de turnos ou contratação de novos auxiliares.
+
+5. Logística e Localização Geográfica (Agregação de Endereços)
+O que a consulta mostrou:
+A concentração de clientes e funcionários por cidade e estado.
+
+Insights e Decisões:
+
+Expansão de Mercado: Se houver uma grande massa de clientes residindo em uma cidade vizinha onde não há unidade física, a VelozCar tem dados concretos para justificar a abertura de um novo ponto de retirada naquela região.
+
+Logística de Entrega: Decidir onde investir em serviços de "Leva e Traz" de veículos com base nos bairros onde os clientes mais frequentes estão localizados.
